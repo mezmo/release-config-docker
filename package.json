@@ -6,6 +6,13 @@
     "semantic-release",
     "docker"
   ],
+  "files": [
+    "index.js",
+    "lib/",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
   "homepage": "https://github.com/mezmo/release-config-docker#readme",
   "bugs": {
     "url": "https://github.com/mezmo/release-config-docker/issues"
