@@ -118,9 +118,7 @@ pipeline {
           ],
           userRemoteConfigs: scm.userRemoteConfigs
         ])
-        sh 'git tag'
         sh 'npm install'
-        sh "echo Running release dry run for ${BRANCH_NAME}"
         sh "git checkout -b ${BRANCH_NAME}"
 
         withCredentials([
