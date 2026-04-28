@@ -1,0 +1,76 @@
+{
+  "name": "@mezmoinc/release-config-docker",
+  "version": "0.0.0",
+  "description": "A semantic-release shareable configuration for building docker images",
+  "keywords": [
+    "semantic-release",
+    "docker"
+  ],
+  "homepage": "https://github.com/mezmo/release-config-docker#readme",
+  "bugs": {
+    "url": "https://github.com/mezmo/release-config-docker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mezmo/release-config-docker.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "license": "MIT",
+  "author": "Eric Satterwhite <eric.satterwhite@mezmo.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "tap": "tap",
+    "commitlint": "commitlint-mzm --from origin/main --to HEAD",
+    "release": "npx semantic-release",
+    "release:dry": "npm run release -- --no-ci --dry-run --branches=${BRANCH_NAME:-main}",
+    "pretest": "rm -rf .tap*",
+    "test": "./scripts/test-ci.sh",
+    "lint": "eslint ",
+    "lint:fix": "npm run lint -- --fix",
+    "prelint:ci": "rm -f .eslint.json",
+    "lint:ci": "eslint -f json-relative > .eslint.json || true"
+  },
+  "tap": {
+    "browser": false,
+    "show-full-coverage": true,
+    "statements": 100,
+    "branches": 100,
+    "functions": 100,
+    "lines": 100,
+    "coverage-report": [
+      "text",
+      "text-summary",
+      "lcov",
+      "json",
+      "json-summary",
+      "html"
+    ],
+    "output-file": ".tap-out",
+    "files": [
+      "test/unit"
+    ]
+  },
+  "devDependencies": {
+    "@mezmoinc/commitlint-config": "^1.0.0",
+    "eslint": "^10.2.1",
+    "eslint-config-logdna": "^8.0.1",
+    "eslint-formatter-json-relative": "^0.1.0",
+    "tap": "^21.7.1"
+  },
+  "dependencies": {
+    "@mezmoinc/release-config-core": "^1.1.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^10.0.1"
+  }
+}
