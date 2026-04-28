@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.0.1](https://github.com/mezmo/release-config-docker/compare/v1.0.0...v1.0.1) (2026-04-28)
+
+
+### Bug Fixes
+
+* **pkg**: Include a files filed in package json [07d8b17](https://github.com/mezmo/release-config-docker/commit/07d8b1701d4609d9c66255ad58103a8626e7d09a) - Eric Satterwhite [#3](https://github.com/mezmo/release-config-docker/issues/3)
+
 # 1.0.0 (2026-04-28)
 
 
