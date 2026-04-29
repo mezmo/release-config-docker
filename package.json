@@ -75,6 +75,7 @@
     "tap": "^21.7.1"
   },
   "dependencies": {
+    "@codedependant/semantic-release-docker": "^6.1.1",
     "@mezmoinc/release-config-core": "^1.1.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
