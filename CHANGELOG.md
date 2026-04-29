@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.0.2](https://github.com/mezmo/release-config-docker/compare/v1.0.1...v1.0.2) (2026-04-29)
+
+
+### Chores
+
+* **dep**: codedependant/semantic-release-docker@6.1.1 [c781758](https://github.com/mezmo/release-config-docker/commit/c7817587d075987aeedb8c00c6f87a71b04848b4) - Eric Satterwhite [#5](https://github.com/mezmo/release-config-docker/issues/5)
+
 ## [1.0.1](https://github.com/mezmo/release-config-docker/compare/v1.0.0...v1.0.1) (2026-04-28)
 
 
