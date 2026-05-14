@@ -139,8 +139,15 @@ pipeline {
         sh "git checkout -b ${BRANCH_NAME}"
 
         withCredentials([
-           string(credentialsId: 'github-api-token', variable: 'GITHUB_TOKEN'),
-           string(credentialsId: 'npm-publish-token', variable: 'NPM_TOKEN')
+           usernamePassword(
+             credentialsId: 'github-app-key-mezmo',
+             passwordVariable: 'GITHUB_TOKEN',
+             usernameVariable: 'GITHUB_APP'
+           ),
+           string(
+             credentialsId: 'npm-publish-token',
+             variable: 'NPM_TOKEN'
+           )
         ]) {
           sh "npm run release:dry -- --repository-url=file://${WORKSPACE}"
         }
@@ -148,6 +155,12 @@ pipeline {
     }
 
     stage('Release') {
+      environment {
+        GIT_AUTHOR_NAME = 'Mezmo Bot'
+        GIT_AUTHOR_EMAIL = 'bot@mezmo.com'
+        GIT_COMMITTER_NAME = 'Mezmo Bot'
+        GIT_COMMITTER_EMAIL = 'bot@mezmo.com'
+      }
       when {
         beforeAgent true
         branch DEFAULT_BRANCH
@@ -158,8 +171,15 @@ pipeline {
 
       steps {
         withCredentials([
-           string(credentialsId: 'github-api-token', variable: 'GITHUB_TOKEN'),
-           string(credentialsId: 'npm-publish-token', variable: 'NPM_TOKEN')
+           usernamePassword(
+             credentialsId: 'github-app-key-mezmo',
+             passwordVariable: 'GITHUB_TOKEN',
+             usernameVariable: 'GITHUB_APP'
+           ),
+           string(
+             credentialsId: 'npm-publish-token',
+             variable: 'NPM_TOKEN'
+            )
         ]) {
           sh 'npm run release'
         }
