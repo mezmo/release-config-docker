@@ -49,7 +49,7 @@ test('release-config-docker', async (t) => {
 
   t.ok(git[1].assets.includes('package*.json'), 'git plugin tracks package*.json files')
   t.ok(git[1].assets.includes('Cargo.*'), 'git plugin tracks Cargo.* files')
-  t.ok(git[1].assets.includes('**/Cargo.*'), 'git plugin nested Cargo.* files')
+  t.ok(git[1].assets.includes('crates/*/Cargo.*'), 'git plugin nested Cargo.* files')
 
   t.same(plugins, [
     '@semantic-release/commit-analyzer'
