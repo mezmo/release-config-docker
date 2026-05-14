@@ -14,7 +14,7 @@ def NPMRC = [
 pipeline {
   agent {
     node {
-      label 'ec2-fleet'
+      label 'ec2-fleet-oss'
        customWorkspace("/tmp/workspace/${BUILD_SLUG}")
     }
   }
@@ -113,8 +113,9 @@ pipeline {
     stage('Release Test') {
       environment {
         GIT_BRANCH = "${CURRENT_BRANCH}"
-        BRANCH_NAME = "${CURRENT_BRANCH}-dry-run-${BUILD_NUMBER}"
+        BRANCH_NAME = "${CURRENT_BRANCH}"
         CHANGE_ID = ""
+        GITHUB_ACTION = 'yes'
       }
 
       when {
@@ -125,29 +126,25 @@ pipeline {
       }
 
       steps {
-        checkout([
-          $class: 'GitSCM',
-          branches: scm.branches,
-          doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-          extensions: scm.extensions + [
-            [$class: 'CloneOption', depth: 0, noTags: false, shallow: false],
-            [$class: 'PruneStaleBranch']
-          ],
-          userRemoteConfigs: scm.userRemoteConfigs
-        ])
         sh 'npm install'
-        sh "git checkout -b ${BRANCH_NAME}"
-
         withCredentials([
            string(credentialsId: 'github-api-token', variable: 'GITHUB_TOKEN'),
            string(credentialsId: 'npm-publish-token', variable: 'NPM_TOKEN')
         ]) {
-          sh "npm run release:dry -- --repository-url=file://${WORKSPACE}"
+          sh 'npm run release:dry'
         }
       }
     }
 
     stage('Release') {
+      environment {
+        GIT_AUTHOR_NAME = 'Mezmo Bot'
+        GIT_AUTHOR_EMAIL = 'bot@mezmo.com'
+        GIT_COMMITTER_NAME = 'Mezmo Bot'
+        GIT_COMMITTER_EMAIL = 'bot@mezmo.com'
+        GITHUB_ACTION = 'yes'
+      }
+
       when {
         beforeAgent true
         branch DEFAULT_BRANCH
