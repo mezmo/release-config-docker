@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.0.3](https://github.com/mezmo/release-config-docker/compare/v1.0.2...v1.0.3) (2026-05-14)
+
+
+### Chores
+
+* **ci**: set git identity to mezmobot [a94c94c](https://github.com/mezmo/release-config-docker/commit/a94c94c511bcea124649b0708f9be749740346f0) - Eric Satterwhite [#9](https://github.com/mezmo/release-config-docker/issues/9)* **dep-dev**: mezmoinc/commitlint-config@1.1.1 [795e469](https://github.com/mezmo/release-config-docker/commit/795e46961369a86bfc4bdbf421113ff43fad3917) - Eric Satterwhite* **deps**: mezmomic/release-config-core@1.1.3 [3bbc032](https://github.com/mezmo/release-config-docker/commit/3bbc03298e01a98dc62cb3e978955e9742f242af) - Eric Satterwhite [#9](https://github.com/mezmo/release-config-docker/issues/9)
+
 ## [1.0.2](https://github.com/mezmo/release-config-docker/compare/v1.0.1...v1.0.2) (2026-04-29)
 
 
