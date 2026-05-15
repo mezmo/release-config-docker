@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.0.5](https://github.com/mezmo/release-config-docker/compare/v1.0.4...v1.0.5) (2026-05-15)
+
+
+### Chores
+
+* use the oss worker node for ci builds [e09c249](https://github.com/mezmo/release-config-docker/commit/e09c2493ef01192b2fd82c1e8355c83dd3b7e0fc) - Eric Satterwhite
+
 ## [1.0.4](https://github.com/mezmo/release-config-docker/compare/v1.0.3...v1.0.4) (2026-05-15)
 
 

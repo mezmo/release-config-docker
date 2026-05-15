@@ -1,6 +1,6 @@
 {
   "name": "@mezmoinc/release-config-docker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A semantic-release shareable configuration for building docker images",
   "keywords": [
     "semantic-release",
