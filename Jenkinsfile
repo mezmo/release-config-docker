@@ -11,6 +11,18 @@ def NPMRC = [
     configFile(fileId: 'npmrc', variable: 'NPM_CONFIG_USERCONFIG')
 ]
 
+def RELEASE_CREDENTIALS = [
+   usernamePassword(
+     credentialsId: 'github-app-key-mezmo',
+     passwordVariable: 'GITHUB_TOKEN',
+     usernameVariable: 'GITHUB_APP'
+   ),
+   string(
+     credentialsId: 'npm-publish-token',
+     variable: 'NPM_TOKEN'
+    )
+]
+
 pipeline {
   agent {
     node {
@@ -127,10 +139,7 @@ pipeline {
 
       steps {
         sh 'npm install'
-        withCredentials([
-           string(credentialsId: 'github-api-token', variable: 'GITHUB_TOKEN'),
-           string(credentialsId: 'npm-publish-token', variable: 'NPM_TOKEN')
-        ]) {
+        withCredentials(RELEASE_CREDENTIALS) {
           sh 'npm run release:dry'
         }
       }
@@ -144,7 +153,6 @@ pipeline {
         GIT_COMMITTER_EMAIL = 'bot@mezmo.com'
         GITHUB_ACTION = 'yes'
       }
-
       when {
         beforeAgent true
         branch DEFAULT_BRANCH
@@ -154,10 +162,7 @@ pipeline {
       }
 
       steps {
-        withCredentials([
-           string(credentialsId: 'github-api-token', variable: 'GITHUB_TOKEN'),
-           string(credentialsId: 'npm-publish-token', variable: 'NPM_TOKEN')
-        ]) {
+        withCredentials(RELEASE_CREDENTIALS) {
           sh 'npm run release'
         }
       }
