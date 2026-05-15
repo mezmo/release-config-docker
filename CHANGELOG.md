@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.0.6](https://github.com/mezmo/release-config-docker/compare/v1.0.5...v1.0.6) (2026-05-15)
+
+
+### Chores
+
+* **ci**: use the orgnaization github app for authentication [c402e76](https://github.com/mezmo/release-config-docker/commit/c402e7623e160f032c745d7ffffa88c15418d567) - Eric Satterwhite [#9](https://github.com/mezmo/release-config-docker/issues/9)
+
 ## [1.0.5](https://github.com/mezmo/release-config-docker/compare/v1.0.4...v1.0.5) (2026-05-15)
 
 
