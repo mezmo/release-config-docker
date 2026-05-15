@@ -1,5 +1,16 @@
 ## Changelog
 
+## [1.0.4](https://github.com/mezmo/release-config-docker/compare/v1.0.3...v1.0.4) (2026-05-15)
+
+
+### Bug Fixes
+
+* **deps**: release-config-core should be a dependency [a4a9314](https://github.com/mezmo/release-config-docker/commit/a4a93148e16b66997966edad3591f74f3f827cc1) - Phil Ciampini [#9](https://github.com/mezmo/release-config-docker/issues/9)
+
+### Miscellaneous
+
+* Revert "chore(ci): set git identity to mezmobot" [f038438](https://github.com/mezmo/release-config-docker/commit/f03843872971f41d0f69ac36f25b9ec2ee0cf7b3) - Phil Ciampini
+
 ## [1.0.3](https://github.com/mezmo/release-config-docker/compare/v1.0.2...v1.0.3) (2026-05-14)
 
 
