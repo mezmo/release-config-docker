@@ -1,5 +1,12 @@
 ## Changelog
 
+## [1.0.7](https://github.com/mezmo/release-config-docker/compare/v1.0.6...v1.0.7) (2026-07-31)
+
+
+### Chores
+
+* **deps**: bump @mezmo/release-config-core [f56a802](https://github.com/mezmo/release-config-docker/commit/f56a8020ebacbb605304d0552c7184656af6c3bc) - Jacob Hull
+
 ## [1.0.6](https://github.com/mezmo/release-config-docker/compare/v1.0.5...v1.0.6) (2026-05-15)
 
 
