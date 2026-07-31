@@ -48,6 +48,9 @@
     "lint:ci": "eslint -f json-relative > .eslint.json || true"
   },
   "tap": {
+    "plugin": [
+      "!@tapjs/typescript"
+    ],
     "browser": false,
     "show-full-coverage": true,
     "statements": 100,
@@ -76,7 +79,7 @@
   },
   "dependencies": {
     "@codedependant/semantic-release-docker": "^6.1.1",
-    "@mezmoinc/release-config-core": "^1.1.3",
+    "@mezmoinc/release-config-core": "^2.0.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1"
